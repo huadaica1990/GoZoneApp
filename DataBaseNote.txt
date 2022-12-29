@@ -1,0 +1,64 @@
+ProductCategory
+ 	Id
+	ParentId
+	Name
+	Alias
+	CreatedDate
+	SortingOrder
+	Status
+
+Product
+ 	Id
+	CategoryId
+	Name
+	Alias
+	CreatedDate
+	ExpiresDate
+	Status
+	Image
+	Price
+
+Bill
+ 	Id
+	CreatedDate
+ 	CustomerId
+ 	CustomerName
+ 	CustomerPhone
+ 	CustomerEmail
+ 	CustomerAddress
+ 	Source
+	Status
+
+BilDetail
+	BillId
+	ProductId
+	Price
+	Quanity
+
+User
+UserRole
+Role
+
+Contact
+	Id
+	Name
+	Phone
+	Email
+	Content
+	CreatedDate
+ 	Source
+ 	Longtitude
+ 	Latitude
+	Status
+
+SystemConfig
+	Id
+	Value
+
+Search
+	Id
+	RefId
+	Name
+	Alias
+	Type
+	Status

@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Configurations\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GoZoneApp.Data\GoZoneApp.Data.csproj" />
+    <ProjectReference Include="..\GoZoneApp.Infrastructure\GoZoneApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\GoZoneApp.Utilities\GoZoneApp.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>
