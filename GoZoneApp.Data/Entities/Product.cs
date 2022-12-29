@@ -8,11 +8,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace GoZoneApp.Data.Entities
 {
     [Table("ProductCategories")]
-    public class ProductCategory : DomainEntity<int>, IDateTracking
+    public class ProductCategory : DomainEntity<int>, IDateTracking, INoDelete
     {
         #region Auto
             public DateTime DateCreated { get; set; }
             public DateTime DateModified { get; set; }
+            public bool NoDeleted { get; set; }
         #endregion
 
         #region Basic
@@ -78,11 +79,11 @@ namespace GoZoneApp.Data.Entities
     }
 
     [Table("ProductAndFunctions")]
-    public class ProductAndFunction : DomainEntity<int>, ISwitchable, ISortable
+    public class ProductAndFunction : DomainEntity<int>, ISortable, ISwitchable
     {
         #region Auto
-            public Status Status { get; set; }
             public int SortOrder { get; set; }
+            public Status Status { get; set; }
         #endregion
 
         #region Basic
@@ -92,10 +93,10 @@ namespace GoZoneApp.Data.Entities
 
         #region Relationship
             [ForeignKey("ProductId")]
-            public virtual Product Product { set; get; }
+            public virtual Product Product { get; set; }
 
             [ForeignKey("ProductFunctionId")]
-            public virtual ProductFunction ProductFunction { set; get; }
+            public virtual ProductFunction ProductFunction { get; set; }
         #endregion
     }
 }

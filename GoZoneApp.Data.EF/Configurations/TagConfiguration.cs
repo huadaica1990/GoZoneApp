@@ -1,5 +1,6 @@
 ﻿using GoZoneApp.Data.EF.Extensions;
 using GoZoneApp.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace GoZoneApp.Data.EF.Configurations
@@ -8,7 +9,7 @@ namespace GoZoneApp.Data.EF.Configurations
     {
         public override void Configure(EntityTypeBuilder<Tag> entity)
         {
-            entity.Property(c => c.Id).HasMaxLength(128).IsRequired().HasColumnType("varchar(128)");
+            entity.Property(c => c.Id).HasMaxLength(50).IsRequired().HasColumnType("varchar(50)");
         }
     }
 }
