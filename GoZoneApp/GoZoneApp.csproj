@@ -15,4 +15,12 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GoZoneApp.Application\GoZoneApp.Application.csproj" />
+    <ProjectReference Include="..\GoZoneApp.Data.EF\GoZoneApp.Data.EF.csproj" />
+    <ProjectReference Include="..\GoZoneApp.Data\GoZoneApp.Data.csproj" />
+    <ProjectReference Include="..\GoZoneApp.Infrastructure\GoZoneApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\GoZoneApp.Utilities\GoZoneApp.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -6,4 +6,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Implementation\" />
+    <Folder Include="AutoMapper\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GoZoneApp.Data.EF\GoZoneApp.Data.EF.csproj" />
+    <ProjectReference Include="..\GoZoneApp.Data\GoZoneApp.Data.csproj" />
+    <ProjectReference Include="..\GoZoneApp.Utilities\GoZoneApp.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>
