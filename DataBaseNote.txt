@@ -54,3 +54,5 @@ Contact
 SystemConfig
 	Id
 	Value
+
+Search
