@@ -56,3 +56,9 @@ SystemConfig
 	Value
 
 Search
+	Id
+	RefId
+	Name
+	Alias
+	Type
+	Status
