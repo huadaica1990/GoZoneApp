@@ -28,7 +28,7 @@ namespace GoZoneApp.Data.Entities
         #region Relationship
             [ForeignKey("AppUserId")]
             public AppUser AppUser { get; set; }
-            public int AppUserId { get; set; }
+            public Guid AppUserId { get; set; }
         #endregion
     }
 }

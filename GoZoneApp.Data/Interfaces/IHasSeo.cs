@@ -7,7 +7,7 @@ namespace GoZoneApp.Infrastructure.Interfaces
     {
         [Required, StringLength(70)]
         string SeoPageTitle { get; set; }
-        [Required, StringLength(255), Column(TypeName = "varchar")]
+        [Required, StringLength(255), Column(TypeName = "varchar(255)")]
         string SeoAlias { get; set; }
         string SeoKeywords { get; set; }
         [StringLength(160)]

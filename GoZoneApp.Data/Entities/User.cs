@@ -8,7 +8,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GoZoneApp.Data.Entities
 {
-    [Table("AppUsers")]
     public class AppUser : IdentityUser<Guid>, IDateTracking
     {
         #region Auto
@@ -26,7 +25,6 @@ namespace GoZoneApp.Data.Entities
         #endregion
     }
 
-    [Table("AppRoles")]
     public class AppRole : IdentityRole<Guid>
     {
         public AppRole() : base() { }
@@ -38,7 +36,7 @@ namespace GoZoneApp.Data.Entities
         public string Description { get; set; }
     }
 
-    [Table("AppPermissions")]
+    [Table("GoZonePermissions")]
     public class AppPermission : DomainEntity<int>
     {
         #region Basic
@@ -50,8 +48,8 @@ namespace GoZoneApp.Data.Entities
         #endregion
 
         #region Relationship
-            [Required, StringLength(450)]
-            public string RoleId { get; set; }
+            [Required]
+            public Guid RoleId { get; set; }
             [ForeignKey("RoleId")]
             public virtual AppRole AppRole { get; set; }
 
@@ -62,7 +60,7 @@ namespace GoZoneApp.Data.Entities
         #endregion
     }
 
-    [Table("AppFunctions")]
+    [Table("GoZoneFunctions")]
     public class AppFunction : DomainEntity<string>, ISortable, ISwitchable
     {
         public AppFunction() { }
