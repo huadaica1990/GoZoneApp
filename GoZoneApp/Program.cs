@@ -35,9 +35,9 @@ builder.Services.AddIdentity<AppUser, AppRole>()
 
 //    options.SignIn.RequireConfirmedAccount = true;
 //});
-
 builder.Services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
 builder.Services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
+
 builder.Services.AddTransient<DbInitializer>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();

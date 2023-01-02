@@ -2,7 +2,6 @@
 using GoZoneApp.Data.EF.Extensions;
 using GoZoneApp.Data.Entities;
 using GoZoneApp.Infrastructure.Interfaces;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;

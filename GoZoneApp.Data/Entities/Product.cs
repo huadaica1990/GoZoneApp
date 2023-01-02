@@ -10,6 +10,18 @@ namespace GoZoneApp.Data.Entities
     [Table("ProductCategories")]
     public class ProductCategory : DomainEntity<int>, IDateTracking, INoDelete
     {
+        public ProductCategory()
+        {
+            Products = new List<Product>();
+        }
+        public ProductCategory(string name, string? description, int? parentId)
+        {
+            Name = name;
+            Description = description;
+            ParentId = parentId;
+        }
+
+
         #region Auto
             public DateTime DateCreated { get; set; }
             public DateTime DateModified { get; set; }
@@ -20,15 +32,11 @@ namespace GoZoneApp.Data.Entities
             [Required, StringLength(255)]
             public string Name { get; set; }
             [StringLength(255)]
-            public string Description { get; set; }
+            public string? Description { get; set; }
             public int? ParentId { get; set; }
         #endregion
 
         #region Relationship
-            public ProductCategory()
-            {
-                Products = new List<Product>();
-            }
             public virtual ICollection<Product> Products { set; get; }
         #endregion
     }

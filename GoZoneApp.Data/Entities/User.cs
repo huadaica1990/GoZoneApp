@@ -18,7 +18,7 @@ namespace GoZoneApp.Data.Entities
         #region Basic
             public string Name { get; set; }
             public DateTime? BirthDay { get; set; }
-            public string Avatar { get; set; }
+            public string? Avatar { get; set; }
             [DefaultValue(0)]
             public decimal Balance { get; set; }
             public UserStatus Status { get; set; }
@@ -84,7 +84,7 @@ namespace GoZoneApp.Data.Entities
             [Required, StringLength(250)]
             public string Url { get; set; }
             [StringLength(128)]
-            public string ParentId { get; set; }
+            public string? ParentId { get; set; }
             public string Icon { get; set; }
         #endregion
     }

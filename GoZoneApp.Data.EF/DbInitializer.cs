@@ -1,8 +1,6 @@
 ﻿using GoZoneApp.Data.Entities;
 using GoZoneApp.Data.Enums;
 using Microsoft.AspNetCore.Identity;
-using System.Drawing;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GoZoneApp.Data.EF
 {
@@ -61,9 +59,9 @@ namespace GoZoneApp.Data.EF
                         Name = "GoZone Admin",
                         Email = "tronghuy2208@gmail.com",
                         Balance = 0,
-                    }, "GOZOne1990");
+                    }, "GOZOne!990");
                     var user = await _userManager.FindByNameAsync("gozoneadmin");
-                    await _userManager.AddToRoleAsync(user, "GoZone Admin");
+                    await _userManager.AddToRoleAsync(user, "GoZoneAdmin");
 
                     await _userManager.CreateAsync(new AppUser()
                     {
@@ -71,7 +69,7 @@ namespace GoZoneApp.Data.EF
                         Name = "Administrator",
                         Email = "admin@gmail.com",
                         Balance = 0,
-                    }, "@dmin2022");
+                    }, "@dmIn2022");
                     var user1 = await _userManager.FindByNameAsync("admin");
                     await _userManager.AddToRoleAsync(user1, "Admin");
                 }
@@ -109,7 +107,7 @@ namespace GoZoneApp.Data.EF
             #endregion
 
             #region ProductCategory
-            if (_context.ProductCategories.Count() == 0)
+                if (_context.ProductCategories.Count() == 0)
                 {
                     List<ProductCategory> productCategory = new List<ProductCategory>()
                     {
@@ -151,6 +149,7 @@ namespace GoZoneApp.Data.EF
                     });
                 }
             #endregion
+            await _context.SaveChangesAsync();
         }
     }
 }
