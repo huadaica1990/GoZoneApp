@@ -12,7 +12,8 @@ namespace GoZoneApp.Application.AutoMapper
                 .ConstructUsing(c => new ProductCategory(
                     c.Name,
                     c.Description,
-                    c.ParentId));
+                    c.ParentId,
+                    c.NoDeleted));
         }
     }
 }

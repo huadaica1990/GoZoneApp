@@ -14,11 +14,12 @@ namespace GoZoneApp.Data.Entities
         {
             Products = new List<Product>();
         }
-        public ProductCategory(string name, string? description, int? parentId)
+        public ProductCategory(string name, string? description, int? parentId, bool noDeleted)
         {
             Name = name;
             Description = description;
             ParentId = parentId;
+            NoDeleted = noDeleted;
         }
 
 

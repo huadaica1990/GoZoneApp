@@ -1,18 +1,16 @@
 ﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore.Metadata;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GoZoneApp.Application.AutoMapper
 {
     public class AutoMapperConfig
     {
-        public static ITypeMappingConfiguration RegisterMappings()
+        public static MapperConfiguration RegisterMappings()
         {
-            return new MapperConfiguration(cfg =>)
+            return new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new DomainToViewModelMappingProfile());
+                cfg.AddProfile(new ViewModelToDomainMappingProfile());
+            });
         }
     }
 }

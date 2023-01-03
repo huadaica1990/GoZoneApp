@@ -1,9 +1,16 @@
+using AutoMapper;
+using GoZoneApp.Application.AutoMapper;
 using GoZoneApp.Data;
 using GoZoneApp.Data.EF;
 using GoZoneApp.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using GoZoneApp.Application;
+using GoZoneApp.Application.Interfaces;
+using GoZoneApp.Data.IRepositories;
+using GoZoneApp.Data.EF.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,9 +45,16 @@ builder.Services.AddIdentity<AppUser, AppRole>()
 builder.Services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
 builder.Services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
 
+IMapper mapper = AutoMapperConfig.RegisterMappings().CreateMapper();
+builder.Services.AddSingleton(mapper);
+builder.Services.AddScoped(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
+
 builder.Services.AddTransient<DbInitializer>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
+builder.Services.AddTransient<IProductCategoryService>();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
@@ -60,8 +74,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-//app.UseAuthentication();
-//app.UseAuthorization();
+app.UseAuthentication();
+app.UseAuthorization();
 
 
 app.MapControllerRoute(
