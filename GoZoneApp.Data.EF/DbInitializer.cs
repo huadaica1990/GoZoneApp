@@ -59,6 +59,9 @@ namespace GoZoneApp.Data.EF
                         Name = "GoZone Admin",
                         Email = "tronghuy2208@gmail.com",
                         Balance = 0,
+                        DateCreated = DateTime.Now,
+                        DateModified = DateTime.Now,
+                        Status = UserStatus.Active
                     }, "GOZOne!990");
                     var user = await _userManager.FindByNameAsync("gozoneadmin");
                     await _userManager.AddToRoleAsync(user, "GoZoneAdmin");
@@ -69,6 +72,9 @@ namespace GoZoneApp.Data.EF
                         Name = "Administrator",
                         Email = "admin@gmail.com",
                         Balance = 0,
+                        DateCreated = DateTime.Now,
+                        DateModified = DateTime.Now,
+                        Status = UserStatus.Active
                     }, "@dmIn2022");
                     var user1 = await _userManager.FindByNameAsync("admin");
                     await _userManager.AddToRoleAsync(user1, "Admin");
@@ -111,7 +117,12 @@ namespace GoZoneApp.Data.EF
                 {
                     List<ProductCategory> productCategory = new List<ProductCategory>()
                     {
-                        new ProductCategory() {Name = "Default", NoDeleted = true },
+                        new ProductCategory() {
+                            Name = "Default", 
+                            NoDeleted = true,
+                            DateCreated = DateTime.Now,
+                            DateModified = DateTime.Now
+                        },
                     };
                     _context.ProductCategories.AddRange(productCategory);
                 }

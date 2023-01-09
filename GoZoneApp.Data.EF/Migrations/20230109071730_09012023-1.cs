@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace GoZoneApp.Data.EF.Migrations
 {
     /// <inheritdoc />
-    public partial class test : Migration
+    public partial class _090120231 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,7 +35,7 @@ namespace GoZoneApp.Data.EF.Migrations
                     DateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BirthDay = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Avatar = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Avatar = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -89,7 +89,7 @@ namespace GoZoneApp.Data.EF.Migrations
                     Status = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Url = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    ParentId = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    ParentId = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: true),
                     Icon = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -127,7 +127,7 @@ namespace GoZoneApp.Data.EF.Migrations
                     DateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NoDeleted = table.Column<bool>(type: "bit", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     ParentId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>

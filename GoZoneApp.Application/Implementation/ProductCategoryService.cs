@@ -3,16 +3,14 @@ using AutoMapper.QueryableExtensions;
 using GoZoneApp.Application.Interfaces;
 using GoZoneApp.Application.ViewModels.Product;
 using GoZoneApp.Data.Entities;
-using GoZoneApp.Data.Enums;
 using GoZoneApp.Data.IRepositories;
 using GoZoneApp.Infrastructure.Interfaces;
-using Microsoft.Extensions.Configuration;
 
 namespace GoZoneApp.Application.Implementation
 {
     public class ProductCategoryService : IProductCategoryService
     {
-        private readonly IMapper _mapper;
+        private IMapper _mapper;
         private IUnitOfWork _unitOfWork;
         private IProductCategoryRepository _productCategoryRepository;
         public ProductCategoryService(

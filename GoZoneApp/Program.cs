@@ -11,6 +11,8 @@ using GoZoneApp.Application;
 using GoZoneApp.Application.Interfaces;
 using GoZoneApp.Data.IRepositories;
 using GoZoneApp.Data.EF.Repositories;
+using GoZoneApp.Application.Implementation;
+using GoZoneApp.Infrastructure.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,16 +47,20 @@ builder.Services.AddIdentity<AppUser, AppRole>()
 builder.Services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
 builder.Services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
 
+
 IMapper mapper = AutoMapperConfig.RegisterMappings().CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddScoped(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
+
+builder.Services.AddTransient<IUnitOfWork, EFUnitOfWork>();
+builder.Services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
+builder.Services.AddTransient<IProductCategoryService, ProductCategoryService>();
+
 
 builder.Services.AddTransient<DbInitializer>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
-builder.Services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
-builder.Services.AddTransient<IProductCategoryService>();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.

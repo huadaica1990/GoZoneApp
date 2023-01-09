@@ -7,11 +7,11 @@ namespace GoZoneApp.Application.Interfaces
         #region BE
             void Save();
             void Delete(int id);
-            void Update(ProductCategoryViewModel productCategoryViewModel);
+            void Update(ProductCategoryViewModel productCategoryVm);
         #endregion
 
         #region FE
-            ProductCategoryViewModel Add(ProductCategoryViewModel productCategoryViewModel);
+            ProductCategoryViewModel Add(ProductCategoryViewModel productCategoryVm);
             List<ProductCategoryViewModel> GetAll();
             List<ProductCategoryViewModel> GetAll(string keyword);
             List<ProductCategoryViewModel> GetAllByParentId(int parentId);
