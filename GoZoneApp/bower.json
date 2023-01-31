@@ -19,6 +19,5 @@
     "flot.curvedlines": "~1.1.1",
     "DateJS": "~1.0.0-rc3",
     "moment": "~2.19.1"
-
   }
 }

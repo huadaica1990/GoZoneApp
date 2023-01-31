@@ -1,0 +1,5 @@
+1. setup bower (https://bower.io/):
+	npm install -g bower 
+	bower install
+	. Use packages
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>

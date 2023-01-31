@@ -29,4 +29,16 @@
     <ProjectReference Include="..\GoZoneApp.Utilities\GoZoneApp.Utilities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\_ViewStart.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\app\controllers\product\" />
+    <Folder Include="wwwroot\app\shared\" />
+  </ItemGroup>
+
 </Project>
